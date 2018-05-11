@@ -13,4 +13,14 @@ const notes = [
   }
 ];
 
-document.querySelector('button').addEventListener();
+document.querySelector('#create-note').addEventListener('click', () => {});
+
+document.querySelector('#remove-all').addEventListener('click', () => {
+  document.querySelectorAll('.note').forEach(note => {
+    note.remove();
+  });
+});
+
+document.querySelector('#search-text').addEventListener('input', e => {
+  console.log(e.target.value);
+});
