@@ -37,12 +37,6 @@ document.querySelector('#create-note').addEventListener('click', e => {
   e.target.textContent = 'The button was clicked';
 });
 
-document.querySelector('#remove-all').addEventListener('click', () => {
-  document.querySelectorAll('.note').forEach(note => {
-    note.remove();
-  });
-});
-
 document.querySelector('#search-text').addEventListener('input', e => {
   filters.searchText = e.target.value;
   renderNotes(notes, filters);
