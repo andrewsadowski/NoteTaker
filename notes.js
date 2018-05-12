@@ -22,10 +22,12 @@ const renderNotes = (notes, filters) => {
     return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
   });
 
+  document.querySelector('#notes').innerHTML = '';
+
   filteredNotes.forEach(note => {
-    const p = document.createElement('p');
-    p.textContent = note.title;
-    document.querySelector('body').appendChild(p);
+    const noteElement = document.createElement('p');
+    noteElement.textContent = note.title;
+    document.querySelector('#notes').appendChild(noteElement);
   });
 };
 
