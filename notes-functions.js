@@ -7,6 +7,10 @@ const getSavedNotes = () => {
   }
 };
 
+const saveNotes = notes => {
+  localStorage.setItem('notes', JSON.stringify(notes));
+};
+
 //Generate DOM structure
 const generateNoteDOM = note => {
   const noteElement = document.createElement('p');
