@@ -14,14 +14,14 @@
 
 <body>
   <h1>NoteTaker</h1>
-  <input type="text" id="search-text" placeholder="Enter a Note">
+  <input type="text" id="search-text" placeholder="Filter Notes">
+  <select>
+    <option>Sort by last edited</option>
+    <option>Sort by recently created</option>
+    <option>Sort alphabetically</option>
+  </select>
   <div id="notes"></div>
   <button id="create-note">Create Note</button>
-  <form id="name-form">
-    <input type="text" placeholder="First Name" name="firstName">
-    <button>Submit</button>
-  </form>
-
   <script src="notes.js"></script>
 </body>
 
