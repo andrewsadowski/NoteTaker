@@ -17,7 +17,22 @@ const filters = {
   searchText: ''
 };
 
-document.querySelector('#create-note').addEventListener('click', () => {});
+const renderNotes = (notes, filters) => {
+  const filteredNotes = notes.filter(note => {
+    return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
+  });
+  filteredNotes.forEach(note => {
+    const p = document.createElement('p');
+    p.textContent = note.title;
+    document.querySelector('body').appendChild(p);
+  });
+};
+
+renderNotes(notes, filters);
+
+document.querySelector('#create-note').addEventListener('click', e => {
+  e.target.textContent = 'The button was clicked';
+});
 
 document.querySelector('#remove-all').addEventListener('click', () => {
   document.querySelectorAll('.note').forEach(note => {
@@ -26,5 +41,6 @@ document.querySelector('#remove-all').addEventListener('click', () => {
 });
 
 document.querySelector('#search-text').addEventListener('input', e => {
-  console.log(e.target.value);
+  filters.searchText = e.target.value;
+  renderNotes(notes, filters);
 });
