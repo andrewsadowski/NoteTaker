@@ -15,10 +15,10 @@
 <body>
   <h1>NoteTaker</h1>
   <input type="text" id="search-text" placeholder="Filter Notes">
-  <select>
-    <option>Sort by last edited</option>
-    <option>Sort by recently created</option>
-    <option>Sort alphabetically</option>
+  <select id="filter-by">
+    <option value="byEdited">Sort by last edited</option>
+    <option value="byCreated">Sort by recently created</option>
+    <option value="alphabetical">Sort alphabetically</option>
   </select>
   <div id="notes"></div>
   <button id="create-note">Create Note</button>
