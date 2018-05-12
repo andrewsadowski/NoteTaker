@@ -4,26 +4,6 @@ const filters = {
   searchText: ''
 };
 
-const renderNotes = (notes, filters) => {
-  const filteredNotes = notes.filter(note => {
-    return note.title.toLowerCase().includes(filters.searchText.toLowerCase());
-  });
-
-  document.querySelector('#notes').innerHTML = '';
-
-  filteredNotes.forEach(note => {
-    const noteElement = document.createElement('p');
-
-    if (note.title.length > 0) {
-      noteElement.textContent = note.title;
-    } else {
-      noteElement.textContent = 'Unnamed note';
-    }
-
-    document.querySelector('#notes').appendChild(noteElement);
-  });
-};
-
 renderNotes(notes, filters);
 
 document.querySelector('#create-note').addEventListener('click', e => {
