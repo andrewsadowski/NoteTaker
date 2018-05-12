@@ -1,21 +1,14 @@
-const notes = [
-  {
-    title: 'My next Trip',
-    body: 'something or other'
-  },
-  {
-    title: 'Habits to work on',
-    body: 'Find habits, work on them'
-  },
-  {
-    title: 'Note 3',
-    body: 'Design World'
-  }
-];
+let notes = [];
 
 const filters = {
   searchText: ''
 };
+
+//check for exisiting saved data
+const notesJSON = localStorage.getItem('notes');
+if (notesJSON !== null) {
+  notes = JSON.parse(notesJSON);
+}
 
 const renderNotes = (notes, filters) => {
   const filteredNotes = notes.filter(note => {
@@ -26,7 +19,13 @@ const renderNotes = (notes, filters) => {
 
   filteredNotes.forEach(note => {
     const noteElement = document.createElement('p');
-    noteElement.textContent = note.title;
+
+    if (note.title.length > 0) {
+      noteElement.textContent = note.title;
+    } else {
+      noteElement.textContent = 'Unnamed note';
+    }
+
     document.querySelector('#notes').appendChild(noteElement);
   });
 };
@@ -34,7 +33,12 @@ const renderNotes = (notes, filters) => {
 renderNotes(notes, filters);
 
 document.querySelector('#create-note').addEventListener('click', e => {
-  e.target.textContent = 'The button was clicked';
+  notes.push({
+    title: '',
+    body: ''
+  });
+  localStorage.setItem('notes', JSON.stringify(notes));
+  renderNotes(notes, filters);
 });
 
 document.querySelector('#search-text').addEventListener('input', e => {
