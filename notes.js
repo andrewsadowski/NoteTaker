@@ -13,6 +13,10 @@ const notes = [
   }
 ];
 
+const filters = {
+  searchText: ''
+};
+
 document.querySelector('#create-note').addEventListener('click', () => {});
 
 document.querySelector('#remove-all').addEventListener('click', () => {
