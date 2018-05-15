@@ -37,7 +37,7 @@ const generateNoteDOM = note => {
     renderNotes(notes, filters);
   });
 
-  //setup the note title text
+  //setup the note title text and write to DOM
   if (note.title.length > 0) {
     textElement.textContent = note.title;
   } else {
