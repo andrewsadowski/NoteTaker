@@ -16,6 +16,18 @@ if (note === undefined) {
 titleElement.value = note.title;
 bodyElement.value = note.body;
 
-titleElement.addEventListener('input', e => {});
+titleElement.addEventListener('input', e => {
+  note.title = e.target.value;
+  saveNotes(notes);
+});
 
-removeNoteButton.addEventListener('click', e => {});
+bodyElement.addEventListener('input', e => {
+  note.body = e.target.value;
+  saveNotes(notes);
+});
+
+removeNoteButton.addEventListener('click', e => {
+  removeNote(note.id);
+  saveNotes(notes);
+  location.assign('/index.html');
+});
