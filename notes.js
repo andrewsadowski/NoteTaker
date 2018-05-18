@@ -34,5 +34,17 @@ window.addEventListener('storage', e => {
   }
 });
 
-const now = new Date();
-console.log(now.toString());
+const date1 = new Date('January 21 2001 6:26:01');
+const date1Timestamp = date1.getTime();
+const date2 = new Date('May 24 1984 5:22:01');
+const date2Timestamp = date2.getTime();
+
+const earlierTime = (date1, date2) => {
+  if (date1 > date2) {
+    console.log(date1.toString());
+  } else {
+    console.log(date2.toString());
+  }
+};
+
+earlierTime(date1Timestamp, date2Timestamp);
