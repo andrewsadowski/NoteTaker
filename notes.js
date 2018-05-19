@@ -8,8 +8,11 @@ renderNotes(notes, filters);
 
 document.querySelector('#create-note').addEventListener('click', e => {
   const id = uuidv4();
+  const timestamp = moment().valueOf();
   notes.push({
     id,
+    createdAt: timestamp,
+    updatedAt: timestamp,
     title: '',
     body: ''
   });
@@ -33,11 +36,3 @@ window.addEventListener('storage', e => {
     renderNotes(notes, filters);
   }
 });
-
-const now = moment();
-const bDate = now
-  .year(1984)
-  .date(24)
-  .month('May');
-console.log(bDate.format('MMM D, YYYY'));
-console.log(bDate.toString());
