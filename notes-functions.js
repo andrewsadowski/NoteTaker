@@ -60,6 +60,16 @@ const sortNotes = (notes, sortBy) => {
         return 0;
       }
     });
+  } else if (sortBy === 'byCreated') {
+    return notes.sort((a, b) => {
+      if (a.createdAt > b.createdAt) {
+        return -1;
+      } else if (a.createdAt < b.createdAt) {
+        return 1;
+      } else {
+        return 0;
+      }
+    });
   } else {
     return notes;
   }
