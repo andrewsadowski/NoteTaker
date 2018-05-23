@@ -12,6 +12,7 @@ const saveNotes = notes => {
   localStorage.setItem('notes', JSON.stringify(notes));
 };
 
+//remove note from localStorage
 const removeNote = id => {
   const noteIndex = notes.findIndex(note => {
     return note.id === id;
